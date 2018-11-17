@@ -5,33 +5,27 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 
 import { MenuComponent } from './menu/menu.component';
+import { AppRoutingModule } from './app-routing.module';
+import { NewUrlComponent } from './new-url/new-url.component';
+import { MyListComponent } from './my-list/my-list.component';
 
-/*const appRoutes: Routes = [
-  { path: 'crisis-center', component: CrisisListComponent },
-  { path: 'hero/:id',      component: HeroDetailComponent },
-  {
-    path: 'heroes',
-    component: HeroListComponent,
-    data: { title: 'Heroes List' }
-  },
-  { path: '',
-    redirectTo: '/heroes',
-    pathMatch: 'full'
-  },
-  { path: '**', component: PageNotFoundComponent }
-];*/
+const routes: Routes = [
+  { path: '', redirectTo: '/my_list', pathMatch: 'full' },
+  { path: 'new_url', component: NewUrlComponent },
+  { path: 'my_list', component: MyListComponent },
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent
+    MenuComponent,
+    NewUrlComponent,
+    MyListComponent
   ],
   imports: [
-    /*RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
-    ),*/
-    BrowserModule
+    RouterModule.forRoot(routes),
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
