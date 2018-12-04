@@ -1,0 +1,22 @@
+.nav-avatar {
+    background: center center no-repeat #e6e6e8;
+        background-image: none;
+        background-size: auto auto;
+    background-size: auto 25px;
+    border-radius: 25px;
+    display: inline-block;
+    float: left;
+    height: 25px;
+    margin-right: .75em;
+    overflow: hidden;
+    width: 25px;
+}
+.nav-username {
+
+    display: inline-block;
+    max-width: 200px;
+    overflow: hidden;
+    padding-right: .4em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
