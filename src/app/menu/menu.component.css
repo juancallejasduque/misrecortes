@@ -1,4 +1,4 @@
-.nav-avatar {
+#user-menu .nav-avatar {
     background: center center no-repeat #e6e6e8;
         background-image: none;
         background-size: auto auto;
@@ -11,10 +11,10 @@
     overflow: hidden;
     width: 25px;
 }
-.nav-username {
+#user-menu .nav-username {
 
     display: inline-block;
-    max-width: 200px;
+    max-width: 106px;
     overflow: hidden;
     padding-right: .4em;
     text-overflow: ellipsis;
