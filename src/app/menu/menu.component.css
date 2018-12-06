@@ -1,22 +1,20 @@
-#user-menu .nav-avatar {
-    background: center center no-repeat #e6e6e8;
+.menu-avatar {
+    width: 49px;
+    height: 49px;
+    border-radius: 50%;
+    background: center center no-repeat;
         background-image: none;
         background-size: auto auto;
+        background-color: transparent !important;
     background-size: auto 25px;
-    border-radius: 25px;
+    border-radius: 25px;    
+    z-index: 999;
+  }
+  .menu-avatar img {
+    border-radius: inherit;
+    width: inherit;
+    height: inherit;
     display: inline-block;
-    float: left;
-    height: 25px;
-    margin-right: .75em;
-    overflow: hidden;
-    width: 25px;
-}
-#user-menu .nav-username {
-
-    display: inline-block;
-    max-width: 106px;
-    overflow: hidden;
-    padding-right: .4em;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
+    position: relative;
+    z-index: 998;
+  }
