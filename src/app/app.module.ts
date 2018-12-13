@@ -9,12 +9,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { NewUrlComponent } from './new-url/new-url.component';
 import { MyListComponent } from './my-list/my-list.component';
 import { FavoritesComponent } from './favorites/favorites.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/my_list', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'favoritos', component: FavoritesComponent },
   { path: 'new_url', component: NewUrlComponent },
   { path: 'my_list', component: MyListComponent },
+  { path: 'login', component: LoginComponent },
 ];
 
 @NgModule({
@@ -23,7 +25,8 @@ const routes: Routes = [
     MenuComponent,
     NewUrlComponent,
     MyListComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    LoginComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
