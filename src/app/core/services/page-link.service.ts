@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, of, from } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import {AppConfig} from '../../configs/app.config';
+import {PageLink} from '../../shared/models/page-link.model';
 
-const endpoint = 'http://localhost:3000/api/v1/';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json'
@@ -27,32 +28,32 @@ export class PageLinkService {
   }
 
   getPageLinks(): Observable<any> {
-    return this.http.get(endpoint + 'pageLinks').pipe(
+    return this.http.get(AppConfig.Api.PAGE).pipe(
       map(this.extractData));
   }
 
   getPageLink(id): Observable<any> {
-    return this.http.get(endpoint + 'pageLinks/' + id).pipe(
+    return this.http.get(AppConfig.Api.PAGE_CRUD + id).pipe(
       map(this.extractData));
   }
 
   addPageLink (product): Observable<any> {
     console.log(product);
-    return this.http.post<any>(endpoint + 'pageLinks', JSON.stringify(product), httpOptions).pipe(
+    return this.http.post<any>(AppConfig.Api.PAGE, JSON.stringify(product), httpOptions).pipe(
       tap((product) => console.log('added pageLink w/ id=${product.id}')),
       catchError(this.handleError<any>('addProduct'))
     );
   }
 
   updatePageLink (id, product): Observable<any> {
-    return this.http.put(endpoint + 'pageLinks/' + id, JSON.stringify(product), httpOptions).pipe(
+    return this.http.put(AppConfig.Api.PAGE_CRUD + id, JSON.stringify(product), httpOptions).pipe(
       tap(_ => console.log(`updated pageLink id=${id}`)),
       catchError(this.handleError<any>('updateProduct'))
     );
   }
 
   deletePageLink (id): Observable<any> {
-    return this.http.delete<any>(endpoint + 'pageLinks/' + id, httpOptions).pipe(
+    return this.http.delete<any>(AppConfig.Api.PAGE_CRUD + id, httpOptions).pipe(
       tap(_ => console.log(`deleted pageLink id=${id}`)),
       catchError(this.handleError<any>('deleteProduct'))
     );
@@ -64,8 +65,9 @@ export class PageLinkService {
       // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
 
+      console.log('${operation} failed: ${error.message}');
       // TODO: better job of transforming error for user consumption
-      console.log(`${operation} failed: ${error.message}`);
+      alert('${operation} failed: ${error.message}');
 
       // Let the app keep running by returning an empty result.
       return of(result as T);
