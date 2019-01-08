@@ -5,13 +5,14 @@ import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/htt
 
 //import { asyncData, asyncError } from '../../testing/async-observable-helpers';
 
-import { PageLinkService } from './page-link.service';
+//import { PageLinkService } from './page-link.service';
+import { PageLinkServiceMock } from '../mocks/page-link.service.mock';
 
 describe('PageLinkService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: PageLinkService = TestBed.get(PageLinkService);
+    const service: PageLinkServiceMock = TestBed.get(PageLinkServiceMock);
     expect(service).toBeTruthy();
   });
 });

@@ -36,6 +36,7 @@ const routes: Routes = [
     HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [MenuComponent]
 })
 export class AppModule { }
