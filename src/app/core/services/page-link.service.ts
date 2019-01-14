@@ -11,13 +11,13 @@ const httpOptions = {
   })
 };
 
+/**
+ * Service  PageLink
+ * @author juancallejasduque@gmail.com
+ */
 @Injectable({
   providedIn: 'root'
 })
-/**
- * entity  PageLink
- * @author juancallejasduque@gmail.com
- */
 export class PageLinkService {
 
   constructor(private http: HttpClient) { }
