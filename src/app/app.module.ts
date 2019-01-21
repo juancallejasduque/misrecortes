@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 
-import { MenuComponent } from './menu/menu.component';
+import { MenuComponent } from './layouts/menu/menu.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NewUrlComponent } from './new-url/new-url.component';
 import { MyListComponent } from './my-list/my-list.component';
