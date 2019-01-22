@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 
-import { MenuComponent } from './layouts/menu/menu.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NewUrlComponent } from './new-url/new-url.component';
 import { MyListComponent } from './my-list/my-list.component';
@@ -13,7 +12,7 @@ import { FavoritesComponent } from './favorites/favorites.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/my_list', pathMatch: 'full' },
   { path: 'favoritos', component: FavoritesComponent },
   { path: 'new_url', component: NewUrlComponent },
   { path: 'my_list', component: MyListComponent },
@@ -23,7 +22,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent,
     NewUrlComponent,
     MyListComponent,
     FavoritesComponent,
@@ -37,6 +35,6 @@ const routes: Routes = [
   ],
   providers: [],
   bootstrap: [AppComponent],
-  exports: [MenuComponent]
+  //exports: [MenuComponent]
 })
 export class AppModule { }

@@ -28,32 +28,32 @@ export class PageLinkService {
   }
 
   getPageLinks(): Observable<any> {
-    return this.http.get(AppConfig.Api.PAGE).pipe(
+    return this.http.get(AppConfig.API_URL + AppConfig.PAGE_LINK).pipe(
       map(this.extractData));
   }
 
   getPageLink(id): Observable<any> {
-    return this.http.get(AppConfig.Api.PAGE_CRUD + id).pipe(
+    return this.http.get(AppConfig.API_URL + AppConfig.PAGE_LINK_CRUD + id).pipe(
       map(this.extractData));
   }
 
   addPageLink (product): Observable<any> {
     console.log(product);
-    return this.http.post<any>(AppConfig.Api.PAGE, JSON.stringify(product), httpOptions).pipe(
+    return this.http.post<any>(AppConfig.API_URL + AppConfig.PAGE_LINK, JSON.stringify(product), httpOptions).pipe(
       tap((product) => console.log('added pageLink w/ id=${product.id}')),
       catchError(this.handleError<any>('addProduct'))
     );
   }
 
   updatePageLink (id, product): Observable<any> {
-    return this.http.put(AppConfig.Api.PAGE_CRUD + id, JSON.stringify(product), httpOptions).pipe(
+    return this.http.put(AppConfig.API_URL + AppConfig.PAGE_LINK_CRUD + id, JSON.stringify(product), httpOptions).pipe(
       tap(_ => console.log(`updated pageLink id=${id}`)),
       catchError(this.handleError<any>('updateProduct'))
     );
   }
 
   deletePageLink (id): Observable<any> {
-    return this.http.delete<any>(AppConfig.Api.PAGE_CRUD + id, httpOptions).pipe(
+    return this.http.delete<any>(AppConfig.API_URL + AppConfig.PAGE_LINK_CRUD + id, httpOptions).pipe(
       tap(_ => console.log(`deleted pageLink id=${id}`)),
       catchError(this.handleError<any>('deleteProduct'))
     );
@@ -61,14 +61,11 @@ export class PageLinkService {
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-
       // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
-
       console.log('${operation} failed: ${error.message}');
       // TODO: better job of transforming error for user consumption
       alert('${operation} failed: ${error.message}');
-
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
