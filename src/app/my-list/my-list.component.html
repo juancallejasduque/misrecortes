@@ -1,3 +1,21 @@
-<p>
-  my-list works! and great branch develop now. Updating source tree modify.
-</p>
+<div class="container">
+  <ul class="queue-list">
+    <li *ngFor="let pageLink of pageLinkList; let i = index" class="item-list">
+      <div class="thumbnail">
+        <img src="{{pageLink.img.src}}" data-holder-rendered="true" alt="...">
+        <div class="caption">
+          <h3>{{pageLink.title}}</h3>
+          <p class="desc-item text-justify">{{pageLink.desc}}</p>
+          
+            <ul class="list-inline">
+              <li><span class="glyphicon glyphicon-floppy-save"></span></li>
+              <li><span class="glyphicon glyphicon-trash"></span></li>
+              <li><span class="glyphicon glyphicon-tags"></span></li>
+              <li><span class="glyphicon glyphicon-star"></span></li>
+            </ul>    
+          
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>  
