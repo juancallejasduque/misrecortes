@@ -36,7 +36,8 @@ const routes: Routes = [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    LayoutModule
+    LayoutModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
